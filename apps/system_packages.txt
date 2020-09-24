@@ -1,0 +1,5 @@
+zlib-dev
+zlib
+libjpeg
+jpeg
+jpeg-dev

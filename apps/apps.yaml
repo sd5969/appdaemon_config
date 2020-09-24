@@ -1,0 +1,31 @@
+music_lights:
+  module: music_lights
+  class: music_lights
+  ha_url: !secret ha_url
+  photo_attributes:
+    - "entity_picture_local"
+    - "entity_picture"
+  media_players:
+    - "media_player.49_tcl_roku_tv"
+    - "media_player.actually_speakers"
+    - "media_player.all_speakers"
+    - "media_player.bedroom_speaker"
+    - "media_player.bedroom_tv"
+    - "media_player.kitchen_speaker"
+    - "media_player.living_room_tv"
+    - "media_player.plex_plex_cast_chromecast"
+    - "media_player.plex_plex_cast_chromecast_2"
+    - "media_player.plex_plex_cast_chromecast_3"
+    - "media_player.plex_plex_for_ios_another_iphone"
+    - "media_player.plex_plex_for_roku_49_tcl_roku_tv"
+    - "media_player.plex_plex_web_chrome_osx"
+    - "media_player.plex_plex_web_chrome"
+    - "media_player.plex_plex_web_chrome_2"
+    - "media_player.plex_plex_web_chrome_3"
+    - "media_player.plex_plexamp_another_iphone"
+    - "media_player.plex_plexamp_macbook_pro"
+  lights:
+    - "light.hue_color_lamp_1"
+    - "light.hue_color_lamp_2"
+    - "light.hue_color_lamp_3"
+    - "light.hue_color_lamp_4"

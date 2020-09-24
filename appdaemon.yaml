@@ -1,0 +1,15 @@
+appdaemon:
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 0
+  time_zone: America/New_York
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret ha_url
+      token: !secret token
+http:
+  url: http://127.0.0.1:5050
+admin:
+api:
+hadashboard:
