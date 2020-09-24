@@ -1,19 +1,5 @@
 import appdaemon.plugins.hass.hassapi as hass
-import sys
-import threading
 
-if sys.version_info < (3, 0):
-    from urllib2 import urlopen
-else:
-    from urllib.request import urlopen
-
-import io
-
-from PIL import Image
-from urllib.parse import urlparse
-
-# This script controls one or multiple RGB lights entity color based on the photo attribute of a media player entity
-# Based on https://github.com/astone123/appdaemon-apps/blob/master/apps/music_lights.py
 class mute_ads(hass.Hass):
 
     def initialize(self):
