@@ -2,6 +2,7 @@ music_lights:
   module: music_lights
   class: music_lights
   ha_url: !secret ha_url
+  toggle_switch: "input_boolean.sync_what_s_playing_to_lights"
   photo_attributes:
     - "entity_picture_local"
     - "entity_picture"

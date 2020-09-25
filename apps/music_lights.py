@@ -23,16 +23,27 @@ class music_lights(hass.Hass):
         self.listen_state(self.change_led_color, media_player, attribute = photo_attr)
 
   def change_led_color(self, entity, attribute, old, new, kwargs):
+
+    # only run if the toggle switch is enabled
+    enabled = self.get_state(entity_id=self.args["toggle_switch"])
+    self.log("Toggle is %s" % enabled)
+    if not enabled == "on":
+      return
+
     if new != old:
+
       if new is None or new == "":
         rgb_colors = []
         for i in range(len(self.lights)):
           rgb_colors.append([255, 220, 151]) # approx 314 mireds
+
       elif not self.url_check(self.args["ha_url"] + new): # break (do nothing) if we don't have a real URL
           return
+
       else:
         rgb_colors = self.get_colors(self.args["ha_url"] + new)
-      self.log(rgb_colors)
+
+      self.log("Setting colors to %s" % rgb_colors)
       for i in range(len(self.lights)):
         threading.Thread(target=self.set_light_rgb, args=(self.lights[i], rgb_colors[i])).start()
 
