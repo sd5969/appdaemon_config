@@ -42,3 +42,29 @@ mute_ads:
     - "media_player.bedroom_tv"
     - "media_player.kitchen_speaker"
     - "media_player.living_room_tv"
+
+control_volume:
+  module: control_volume
+  class: control_volume
+  volume_up:
+    trigger_sources:
+      - "ios.action_fired"
+    event_data_keys:
+      - "actionID"
+    event_data_values:
+      - "506E43BF-6753-4B29-85A6-27ED5D8226E1"
+  volume_down:
+    trigger_sources:
+      - "ios.action_fired"
+    event_data_keys:
+      - "actionID"
+    event_data_values:
+      - "D0DD1AA0-B15B-4D47-9445-085E37912D7F"
+  media_players:
+    - "media_player.49_tcl_roku_tv"
+    - "media_player.actually_speakers"
+    - "media_player.all_speakers"
+    - "media_player.bedroom_speaker"
+    - "media_player.bedroom_tv"
+    - "media_player.kitchen_speaker"
+    - "media_player.living_room_tv"
