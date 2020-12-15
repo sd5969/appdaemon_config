@@ -41,13 +41,18 @@ class music_lights(hass.Hass):
 
     # set back to normal colors
     elif new == "off":
+      all_lights_off = True
+      for i in range(len(self.lights)):
+        if self.get_state(entity_id = self.lights[i]) == "on":
+          all_lights_off = False
+      self.log("All lights off? %s" % all_lights_off)
       rgb_colors = []
       for i in range(len(self.lights)):
         rgb_colors.append([255, 220, 151]) # approx 314 mireds
       # change the colors
       self.log("Setting colors to %s" % rgb_colors)
       for i in range(len(self.lights)):
-        threading.Thread(target=self.set_light_rgb, args=(self.lights[i], rgb_colors[i])).start()
+        threading.Thread(target=self.set_light_rgb, args=(self.lights[i], rgb_colors[i], all_lights_off)).start()
 
 
   # handle changes to a photo attribute
@@ -79,11 +84,15 @@ class music_lights(hass.Hass):
       # change the colors
       self.log("Setting colors to %s" % rgb_colors)
       for i in range(len(self.lights)):
-        threading.Thread(target=self.set_light_rgb, args=(self.lights[i], rgb_colors[i])).start()
+        threading.Thread(target=self.set_light_rgb, args=(self.lights[i], rgb_colors[i], False)).start()
 
   # physically change the color of a light
-  def set_light_rgb(self, light, color):
-    self.turn_on(light, rgb_color=color)
+  def set_light_rgb(self, light, color, turn_light_off):
+    if not turn_light_off:
+      self.turn_on(light, rgb_color=color)
+    if turn_light_off:
+      self.turn_on(light, rgb_color=color, brightness=1)
+      self.turn_off(light)
 
   # algorithm to compute colors
   def get_colors(self, url):

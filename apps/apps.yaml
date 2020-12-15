@@ -7,7 +7,7 @@ music_lights:
     - "entity_picture_local"
     - "entity_picture"
   media_players:
-    - "media_player.49_tcl_roku_tv"
+#    - "media_player.49_tcl_roku_tv"
     - "media_player.actually_speakers"
     - "media_player.all_speakers"
     - "media_player.bedroom_speaker"
@@ -25,6 +25,7 @@ music_lights:
     - "media_player.plex_plex_web_chrome_3"
     - "media_player.plex_plexamp_another_iphone"
     - "media_player.plex_plexamp_macbook_pro"
+    - "media_player.spotify_sdlynx"
   lights:
     - "light.hue_color_lamp_1"
     - "light.hue_color_lamp_2"
@@ -36,12 +37,12 @@ mute_ads:
   class: mute_ads
   media_players:
     - "media_player.49_tcl_roku_tv"
-    - "media_player.actually_speakers"
-    - "media_player.all_speakers"
+#    - "media_player.actually_speakers"
+#    - "media_player.all_speakers"
     - "media_player.bedroom_speaker"
-    - "media_player.bedroom_tv"
+#    - "media_player.bedroom_tv"
     - "media_player.kitchen_speaker"
-    - "media_player.living_room_tv"
+#    - "media_player.living_room_tv"
 
 control_volume:
   module: control_volume
@@ -68,3 +69,28 @@ control_volume:
     - "media_player.bedroom_tv"
     - "media_player.kitchen_speaker"
     - "media_player.living_room_tv"
+
+control_brightness:
+  module: control_brightness
+  class: control_brightness
+  brightness_up:
+    trigger_sources:
+      - "ios.action_fired"
+    event_data_keys:
+      - "actionID"
+    event_data_values:
+      - "8397DEAB-F796-4BC7-9ECF-27A0D2D5955C" 
+  brightness_down:
+    trigger_sources:
+      - "ios.action_fired"
+    event_data_keys:
+      - "actionID"
+    event_data_values:
+      - "46F83FC0-D206-4600-AA71-4B8AF7217ABF"
+  lights:
+    - "light.hue_color_lamp_1"
+    - "light.hue_color_lamp_2"
+    - "light.hue_color_lamp_3"
+    - "light.hue_color_lamp_4"
+    - "light.hue_white_lamp_1"
+    - "light.hue_white_lamp_2"
