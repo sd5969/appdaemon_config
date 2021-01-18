@@ -73,13 +73,21 @@ class music_lights(hass.Hass):
         for i in range(len(self.lights)):
           rgb_colors.append([255, 220, 151]) # approx 314 mireds
 
-      # break (do nothing) if we don't have a real URL
-      elif not self.url_check(self.args["ha_url"] + new):
+      else:
+
+        # parse both local URLs and external URLs
+        full_url = ""
+        if new[:4] == "http":
+          full_url = new
+        else:
+          full_url = self.args["ha_url"] + new
+
+        # break (do nothing) if we don't have a real URL
+        if not self.url_check(full_url):
           return
 
-      # compute colors based on album art (new is the URL fragment to the picture)
-      else:
-        rgb_colors = self.get_colors(self.args["ha_url"] + new)
+        # compute colors based on album art (new is the URL fragment to the picture)
+        rgb_colors = self.get_colors(full_url)
 
       # change the colors
       self.log("Setting colors to %s" % rgb_colors)
@@ -96,6 +104,7 @@ class music_lights(hass.Hass):
 
   # algorithm to compute colors
   def get_colors(self, url):
+    # self.log("requesting URL %s" % url)
     fd = urlopen(url)
     f = io.BytesIO(fd.read())
     im = Image.open(f)

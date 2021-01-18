@@ -9,14 +9,14 @@ class control_volume(hass.Hass):
         kwargs = {}
         kwargs[self.args["volume_up"]["event_data_keys"][i]] = self.args["volume_up"]["event_data_values"][i]
 
-        self.listen_event(self.change_volume, event=source, increase_volume=False, **kwargs)
+        self.listen_event(self.change_volume, event=source, increase_volume=True, **kwargs)
 
       for (j, source) in enumerate(self.args["volume_down"]["trigger_sources"]):
 
         kwargs = {}
         kwargs[self.args["volume_down"]["event_data_keys"][j]] = self.args["volume_down"]["event_data_values"][j]
 
-        self.listen_event(self.change_volume, event=source, increase_volume=True, **kwargs)
+        self.listen_event(self.change_volume, event=source, increase_volume=False, **kwargs)
 
     def change_volume(self, event, attributes, kwargs):
 
