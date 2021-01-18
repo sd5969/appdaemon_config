@@ -27,10 +27,10 @@ music_lights:
     - "media_player.plex_plexamp_macbook_pro"
     - "media_player.spotify_sdlynx"
   lights:
-    - "light.hue_color_lamp_1"
-    - "light.hue_color_lamp_2"
-    - "light.hue_color_lamp_3"
-    - "light.hue_color_lamp_4"
+    - "light.desk_color_lamp_1"
+    - "light.tv_color_lamp_2"
+    - "light.tv_color_lamp_3"
+    - "light.bed_color_lamp_4"
 
 mute_ads:
   module: mute_ads
@@ -53,14 +53,14 @@ control_volume:
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "506E43BF-6753-4B29-85A6-27ED5D8226E1"
+      - "911A3059-9EC1-4779-BB85-57025592A885"
   volume_down:
     trigger_sources:
       - "ios.action_fired"
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "D0DD1AA0-B15B-4D47-9445-085E37912D7F"
+      - "5A426671-EA87-4958-BE4F-C41FF63CD440"
   media_players:
     - "media_player.49_tcl_roku_tv"
     - "media_player.actually_speakers"
@@ -79,18 +79,18 @@ control_brightness:
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "8397DEAB-F796-4BC7-9ECF-27A0D2D5955C" 
+      - "1685B59F-E976-4C7E-8C90-A61F9142DADE"
   brightness_down:
     trigger_sources:
       - "ios.action_fired"
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "46F83FC0-D206-4600-AA71-4B8AF7217ABF"
+      - "282E2945-2678-41F4-A043-A6398BED0CFC"
   lights:
-    - "light.hue_color_lamp_1"
-    - "light.hue_color_lamp_2"
-    - "light.hue_color_lamp_3"
-    - "light.hue_color_lamp_4"
-    - "light.hue_white_lamp_1"
-    - "light.hue_white_lamp_2"
+    - "light.desk_color_lamp_1"
+    - "light.tv_color_lamp_2"
+    - "light.tv_color_lamp_3"
+    - "light.bed_color_lamp_4"
+    - "light.desk_white_lamp_1"
+    - "light.desk_white_lamp_2"
