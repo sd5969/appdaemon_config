@@ -6,9 +6,9 @@ class detect_noise(hass.Hass):
 
     def initialize(self):
 
-      self.listen_state(self.detect_noise, self.args["noise_level_sensor"])
+      self.listen_state(self.detect_noise_response, self.args["noise_level_sensor"])
 
-    def detect_noise(self, state, attributes, kwargs):
+    def detect_noise_response(self, entity, attribute, old, new, kwargs):
 
       # max_volume = 0
 
@@ -31,7 +31,7 @@ class detect_noise(hass.Hass):
 
           current_volume = self.get_state(entity_id=media_player, attribute="volume_level")
           
-          if state = True:
+          if new == True:
 
             set_volume = min(1, current_volume + GAIN)
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
