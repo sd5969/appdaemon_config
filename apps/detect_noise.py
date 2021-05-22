@@ -31,7 +31,8 @@ class detect_noise(hass.Hass):
 
           current_volume = self.get_state(entity_id=media_player, attribute="volume_level")
           
-          if new == True:
+          # self.log("%s", new == "True")
+          if new == "True": # this is a string???
 
             set_volume = min(1, current_volume + GAIN)
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
