@@ -1,6 +1,6 @@
 import appdaemon.plugins.hass.hassapi as hass
 
-GAIN = 0.2
+GAIN = 0.1
 
 class detect_noise(hass.Hass):
 
