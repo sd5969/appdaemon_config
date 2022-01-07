@@ -26,6 +26,7 @@ music_lights:
     - "media_player.plex_plexamp_another_iphone"
     - "media_player.plex_plexamp_macbook_pro"
     - "media_player.spotify_sdlynx"
+    - "binary_sensor.game_color_sync_active"
   lights:
     - "light.desk_color_lamp_1"
     - "light.tv_color_lamp_2"
