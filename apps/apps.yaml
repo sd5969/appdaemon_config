@@ -54,14 +54,16 @@ control_volume:
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "911A3059-9EC1-4779-BB85-57025592A885"
+#      - "911A3059-9EC1-4779-BB85-57025592A885"
+      - "volume_up"
   volume_down:
     trigger_sources:
       - "ios.action_fired"
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "5A426671-EA87-4958-BE4F-C41FF63CD440"
+#      - "5A426671-EA87-4958-BE4F-C41FF63CD440"
+      - "volume_down"
   media_players:
     - "media_player.49_tcl_roku_tv"
     - "media_player.actually_speakers"
@@ -80,14 +82,16 @@ control_brightness:
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "1685B59F-E976-4C7E-8C90-A61F9142DADE"
+#      - "1685B59F-E976-4C7E-8C90-A61F9142DADE"
+      - "brightness_up"
   brightness_down:
     trigger_sources:
       - "ios.action_fired"
     event_data_keys:
       - "actionID"
     event_data_values:
-      - "282E2945-2678-41F4-A043-A6398BED0CFC"
+#      - "282E2945-2678-41F4-A043-A6398BED0CFC"
+      - "brightness_down"
   lights:
     - "light.desk_color_lamp_1"
     - "light.tv_color_lamp_2"
