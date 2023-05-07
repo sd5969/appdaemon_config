@@ -30,12 +30,12 @@ class control_brightness(hass.Hass):
 
           if kwargs["increase_brightness"]:
 
-            set_brightness = min(255, current_brightness + 25)
+            set_brightness = min(255, current_brightness + 60)
             self.call_service("light/turn_on", entity_id=light, brightness=set_brightness)
 
           else:
 
-            set_brightness = max(0, current_brightness - 25)
+            set_brightness = max(0, current_brightness - 60)
             self.call_service("light/turn_on", entity_id=light, brightness=set_brightness)
 
           # self.log("set brightness %f", set_brightness)
