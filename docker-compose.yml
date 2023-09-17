@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    appdaemon:
+        container_name: appdaemon
+        ports:
+            - '5050:5050'
+        restart: always
+        environment:
+            - HA_URL=http://172.17.0.1:8123
+            - TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIyM2YxMjJjZGQ1NmY0ZWU5ODE0YmIwZTc2YWVmZGVjNyIsImlhdCI6MTYxMDkzMTI1MSwiZXhwIjoxOTI2MjkxMjUxfQ.W609aiG1Dm48NEeTNCNQK_TtOmyJWChbWMo2FNb11x4
+            - DASH_URL=http://127.0.0.1:5050
+        volumes:
+            - /home/sanjit/containers/appdaemon_config:/conf
+        image: acockburn/appdaemon:latest

@@ -8,27 +8,30 @@ music_lights:
     - "entity_picture"
   media_players:
 #    - "media_player.49_tcl_roku_tv"
-    - "media_player.all_speakers"
-    - "media_player.bedroom_speaker"
-    - "media_player.bathroom_speaker"
-    - "media_player.living_room_speaker"
+#    - "media_player.all_speakers"
+#    - "media_player.bedroom_speaker"
+#    - "media_player.bathroom_speaker"
+#    - "media_player.living_room_speaker"
+    - "media_player.bedroom"
+    - "media_player.bathroom"
+    - "media_player.living_room"
     - "media_player.living_room_tv"
-    - "media_player.sanjits_lg_tv"
-    - "media_player.plex_plex_for_lg_lg_55uk6300pue"
+#    - "media_player.sanjits_lg_tv"
+#    - "media_player.plex_plex_for_lg_lg_55uk6300pue"
     - "media_player.plex_plex_for_playstation_5_ps5_874"
     - "media_player.plex_plex_cast_chromecast"
     - "media_player.plex_plex_cast_chromecast_2"
-    - "media_player.plex_plex_cast_chromecast_3"
+#    - "media_player.plex_plex_cast_chromecast_3"
     - "media_player.plex_plex_for_ios_another_iphone"
     - "media_player.plex_plex_for_roku_49_tcl_roku_tv"
     - "media_player.plex_plex_web_chrome_osx"
-    - "media_player.plex_plex_web_chrome"
-    - "media_player.plex_plex_web_chrome_2"
-    - "media_player.plex_plex_web_chrome_3"
-    - "media_player.plex_plexamp_another_iphone"
-    - "media_player.plex_plexamp_macbook_pro"
-    - "media_player.spotify_sdlynx"
-    - "binary_sensor.game_color_sync_active"
+#    - "media_player.plex_plex_web_chrome"
+#    - "media_player.plex_plex_web_chrome_2"
+#    - "media_player.plex_plex_web_chrome_3"
+#    - "media_player.plex_plexamp_another_iphone"
+#    - "media_player.plex_plexamp_macbook_pro"
+    - "media_player.spotify_sanjit_dutta"
+#    - "binary_sensor.game_color_sync_active"
   lights:
     - "light.living_color_lamp_1"
     - "light.living_color_lamp_2"
@@ -38,11 +41,14 @@ mute_ads:
   module: mute_ads
   class: mute_ads
   media_players:
-    - "media_player.bedroom_speaker"
-    - "media_player.bathroom_speaker"
-    - "media_player.living_room_speaker"
+#    - "media_player.bedroom_speaker"
+#    - "media_player.bathroom_speaker"
+#    - "media_player.living_room_speaker"
+    - "media_player.bedroom"
+    - "media_player.bathroom"
+    - "media_player.living_room"
     - "media_player.living_room_tv"
-    - "media_player.sanjits_lg_tv"
+#    - "media_player.sanjits_lg_tv"
 
 control_volume:
   module: control_volume
@@ -53,7 +59,6 @@ control_volume:
     event_data_keys:
       - "actionID"
     event_data_values:
-#      - "911A3059-9EC1-4779-BB85-57025592A885"
       - "volume_up"
   volume_down:
     trigger_sources:
@@ -61,15 +66,17 @@ control_volume:
     event_data_keys:
       - "actionID"
     event_data_values:
-#      - "5A426671-EA87-4958-BE4F-C41FF63CD440"
       - "volume_down"
   media_players:
-    - "media_player.bedroom_speaker"
-    - "media_player.bathroom_speaker"
-    - "media_player.living_room_speaker"
+#    - "media_player.bedroom_speaker"
+#    - "media_player.bathroom_speaker"
+#    - "media_player.living_room_speaker"
+    - "media_player.bedroom"
+    - "media_player.bathroom"
+    - "media_player.living_room"
     - "media_player.living_room_tv"
-    - "media_player.sanjits_lg_tv"
-    - "media_player.all_speakers"
+#    - "media_player.sanjits_lg_tv"
+#    - "media_player.all_speakers"
 
 control_brightness:
   module: control_brightness
@@ -80,7 +87,6 @@ control_brightness:
     event_data_keys:
       - "actionID"
     event_data_values:
-#      - "1685B59F-E976-4C7E-8C90-A61F9142DADE"
       - "brightness_up"
   brightness_down:
     trigger_sources:
@@ -88,7 +94,6 @@ control_brightness:
     event_data_keys:
       - "actionID"
     event_data_values:
-#      - "282E2945-2678-41F4-A043-A6398BED0CFC"
       - "brightness_down"
   lights:
     - "light.living_color_lamp_1"
@@ -101,11 +106,12 @@ detect_noise:
   class: detect_noise
   noise_level_sensor: "sensor.ac_noise_bool"
   media_players:
-    - "media_player.bedroom_speaker"
-    - "media_player.bathroom_speaker"
-    - "media_player.living_room_speaker"
+#    - "media_player.bedroom_speaker"
+#    - "media_player.bathroom_speaker"
+#    - "media_player.living_room_speaker"
+    - "media_player.living_room"
     - "media_player.living_room_tv"
-    - "media_player.sanjits_lg_tv"
-    - "media_player.all_speakers"
-    - "media_player.spotify_sdlynx"
+#    - "media_player.sanjits_lg_tv"
+#    - "media_player.all_speakers"
+#    - "media_player.spotify_sdlynx"
 

@@ -26,7 +26,8 @@ class control_volume(hass.Hass):
 
         # something is playing
         is_muted = self.get_state(entity_id=media_player, attribute="is_volume_muted")
-        if is_muted == False:
+        is_playing = not not self.get_state(entity_id=media_player, attribute="media_title")
+        if not is_muted and is_playing:
 
           current_volume = self.get_state(entity_id=media_player, attribute="volume_level")
           max_volume = max(current_volume, max_volume)
@@ -37,7 +38,8 @@ class control_volume(hass.Hass):
 
         # something is playing
         is_muted = self.get_state(entity_id=media_player, attribute="is_volume_muted")
-        if is_muted == False:
+        is_playing = not not self.get_state(entity_id=media_player, attribute="media_title")
+        if not is_muted and is_playing:
 
           if kwargs["increase_volume"]:
 
