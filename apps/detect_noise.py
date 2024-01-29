@@ -1,7 +1,5 @@
 import appdaemon.plugins.hass.hassapi as hass
 
-GAIN = 0.1
-
 class detect_noise(hass.Hass):
 
     def initialize(self):
@@ -31,15 +29,17 @@ class detect_noise(hass.Hass):
 
           current_volume = self.get_state(entity_id=media_player, attribute="volume_level")
           
+          gain = self.args["gain"]
+
           # self.log("%s", new == "True")
           if new == "True": # this is a string?? anyway, this is the sensor saying noise was detected
 
-            set_volume = min(1, current_volume + GAIN)
+            set_volume = min(1, current_volume + gain)
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
 
           else:
 
-            set_volume = max(0, current_volume - GAIN)
+            set_volume = max(0, current_volume - gain)
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
 
           # self.log("set volume %f", set_volume)

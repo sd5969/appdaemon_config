@@ -60,20 +60,24 @@ class music_lights(hass.Hass):
 
     # only run if the toggle switch is enabled
     enabled = self.get_state(entity_id=self.args["toggle_switch"])
-    self.log("Toggle is %s" % enabled)
+    self.log("Toggle is %s. New = %s, old = %s" % (enabled, new, old))
     if not enabled == "on":
+      self.log("enabled is not on")
       return
 
     # do nothing if the picture isn't changing
     if new != old:
+      self.log("picture changed")
 
       # set colors equal to a nice lamp color when playback stops
       if new is None or new == "":
+        self.log("playback stopped I guess")
         rgb_colors = []
         for i in range(len(self.lights)):
           rgb_colors.append([255, 220, 151]) # approx 314 mireds
 
       else:
+        self.log("parsing colors")
 
         # parse both local URLs and external URLs
         full_url = ""
@@ -84,10 +88,13 @@ class music_lights(hass.Hass):
 
         # break (do nothing) if we don't have a real URL
         if not self.url_check(full_url):
+          self.log("url is not real")
           return
 
         # compute colors based on album art (new is the URL fragment to the picture)
+        self.log("calling get_colors")
         rgb_colors = self.get_colors(full_url)
+        self.log("called get_colors")
 
       # change the colors
       self.log("Setting colors to %s" % rgb_colors)
@@ -104,7 +111,7 @@ class music_lights(hass.Hass):
 
   # algorithm to compute colors
   def get_colors(self, url):
-    # self.log("requesting URL %s" % url)
+    self.log("requesting URL %s" % url)
     fd = urlopen(url)
     f = io.BytesIO(fd.read())
     im = Image.open(f)
