@@ -105,7 +105,7 @@ detect_noise:
   module: detect_noise
   class: detect_noise
   noise_level_sensor: "sensor.ac_noise_bool"
-  gain: 0.5 # 1.0 for Google Nest/Home speakers, 0.5 for Sonos
+  gain: 0.05 # .10 for Google Nest/Home speakers, 0.05 for Sonos
   media_players:
     - media_player.bedroom
     - media_player.living_room
