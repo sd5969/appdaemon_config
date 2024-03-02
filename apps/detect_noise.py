@@ -39,7 +39,7 @@ class detect_noise(hass.Hass):
 
           else:
 
-            set_volume = max(0, current_volume - gain)
+            set_volume = max(0.05, current_volume - gain) # never go below .05
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
 
-          # self.log("set volume %f", set_volume)
+          self.log("set volume %f for %s" % (set_volume, media_player))
