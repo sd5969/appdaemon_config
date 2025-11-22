@@ -26,7 +26,11 @@ class control_volume(hass.Hass):
 
         # something is playing
         is_muted = self.get_state(entity_id=media_player, attribute="is_volume_muted")
-        is_playing = not not self.get_state(entity_id=media_player, attribute="media_title")
+        # is_playing = not not self.get_state(entity_id=media_player, attribute="media_title")
+        is_playing = (self.get_state(entity_id=media_player) == "playing")
+
+        # self.log("%s is_playing: %s", media_player, is_playing)
+
         if not is_muted and is_playing:
 
           current_volume = self.get_state(entity_id=media_player, attribute="volume_level")
@@ -38,17 +42,18 @@ class control_volume(hass.Hass):
 
         # something is playing
         is_muted = self.get_state(entity_id=media_player, attribute="is_volume_muted")
-        is_playing = not not self.get_state(entity_id=media_player, attribute="media_title")
+        # is_playing = not not self.get_state(entity_id=media_player, attribute="media_title")
+        is_playing = (self.get_state(entity_id=media_player) == "playing")
         if not is_muted and is_playing:
 
           if kwargs["increase_volume"]:
 
-            set_volume = min(1, max_volume + .1)
+            set_volume = min(1, max_volume * (1 + self.args["volume_increment"]))
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
 
           else:
 
-            set_volume = max(0, max_volume - .1)
+            set_volume = max(0, max_volume * (1 - self.args["volume_increment"]))
             self.call_service("media_player/volume_set", entity_id=media_player, volume_level=set_volume)
 
-          # self.log("set volume %f", set_volume)
+          self.log("set volume %f", set_volume)
